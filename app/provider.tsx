@@ -2,14 +2,17 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ReactNode, useState } from "react";
+import { usersData } from "./page";
 
 const Provider = ({ children }: { children: ReactNode }) => {
-    const [queryClient] = useState(() => new QueryClient());
-    return (
-        <QueryClientProvider client={queryClient}>
-            {children}
-            <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-    );
+  // const something: usersData = [{ id: 1, name: "test" }];
+  // console.log(something[0].id);
+  const [queryClient] = useState(() => new QueryClient());
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
 };
 export default Provider;
